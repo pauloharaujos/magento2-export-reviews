@@ -1,0 +1,42 @@
+{
+  "name": "pauloharaujos/magento2-export-reviews",
+  "description": "Export Reviews Extension by Paulo Henrique Araujo da Silva.",
+  "type": "magento2-module",
+  "version": "1.1.0",
+  "license": [
+	"OSL-3.0",
+	"AFL-3.0"
+  ],
+  "require": {
+	"../../../../vendor/magento/module-catalog": "*",
+	"php": ">=7.4"
+  },
+  "authors": [
+	{
+	  "name": "Paulo Henrique Araujo da Silva",
+	  "email": "pauloharaujos@gmail.com",
+	  "homepage": "https://github.com/pauloharaujos",
+	  "role": "Sr. Adobe Commerce Developer"
+	}
+  ],
+  "keywords": [
+	"magento",
+	"magento2",
+	"module",
+	"extension"
+  ],
+  "repositories": [
+	{
+	  "type": "composer",
+	  "url": "https://repo.magento.com/"
+	}
+  ],
+  "autoload": {
+	"files": [
+      "registration.php"
+    ],
+	"psr-4": {
+	  "PHAS\\ExportReviews\\": ""
+	}
+  }
+}
