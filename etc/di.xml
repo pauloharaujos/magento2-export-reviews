@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Export Reviews Extension by Paulo Henrique Araujo da Silva
+ *
+ * @category  PHAS
+ * @package   PHAS_ExportReviews
+ * @author    Paulo Henrique Araujo da Silva <pauloharaujos@gmail.com>
+ * @copyright Copyright (c) 2022 Paulo Henrique Araujo da Silva (https://github.com/pauloharaujos)
+ * @license https://opensource.org/licenses/MIT
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="export_reviews" xsi:type="object">\PHAS\ExportReviews\Console\Export</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <preference for="PHAS\ExportReviews\Api\Data\ReviewInterface"
+                type="PHAS\ExportReviews\Model\Review"/>
+</config>
