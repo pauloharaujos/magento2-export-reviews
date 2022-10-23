@@ -14,6 +14,10 @@ declare(strict_types=1);
 
 namespace PHAS\ExportReviews\Api\Data;
 
+/**
+ * Interface ReviewInterface
+ * @api
+ */
 interface ReviewInterface
 {
     /**

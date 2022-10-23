@@ -59,10 +59,30 @@ class Review extends AbstractDb
     public function loadReviews(): array
     {
         $connection = $this->getConnection();
+
+        $approvedStatusId = 1;
+
         $select = $connection->select()->from(
-            $this->reviewTable,
-            ['review_id', 'status_id', 'entity_pk_value']
+            ['r' => $this->reviewTable],
+            ['r.review_id', 'r.status_id', 'r.entity_pk_value', 'rd.title', 'rd.detail', 'res.rating_summary', 'cpe.sku']
+        )->joinLeft(
+            ['rd' => $this->getTable('review_detail')],
+            'rd.review_id = r.review_id',
+            []
+        )->joinLeft(
+            ['res' => $this->getTable('review_entity_summary')],
+            'rd.review_id = res.primary_id',
+            []
+        )->joinLeft(
+            ['cpe' => $this->getTable('catalog_product_entity')],
+            'r.entity_pk_value = cpe.entity_id',
+            []
         );
-        return $connection->fetchCol($select);
+
+        $select->where('r.status_id = ?', $approvedStatusId);
+
+        $selectString = $select->__toString();
+        $result = $connection->fetchAll($select);
+        return $result;
     }
 }
