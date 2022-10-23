@@ -30,5 +30,6 @@ php bin/magento setup:upgrade
 ```
 php bin/magento phas:export_reviews
 ```
+The var/approved_reviews_export.csv file will be created
 
 [Paulo Henrique Araujo da Silva](https://github.com/pauloharaujos)
