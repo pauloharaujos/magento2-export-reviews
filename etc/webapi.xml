@@ -1,16 +1,27 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
+ * Export Reviews Extension by Paulo Henrique Araujo da Silva
+ *
+ * @category  PHAS
+ * @package   PHAS_ExportReviews
+ * @author    Paulo Henrique Araujo da Silva <pauloharaujos@gmail.com>
+ * @copyright Copyright (c) 2022 Paulo Henrique Araujo da Silva (https://github.com/pauloharaujos)
+ * @license https://opensource.org/licenses/MIT
  */
 -->
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
-<!--    <route url="/V1/review/:id" method="GET">-->
-<!--        <service class="PHAS\ExportReviews\Api\GroupRepositoryInterface" method="getById"/>-->
-<!--        <resources>-->
-<!--            <resource ref="PHAS_ExportReviews::group"/>-->
-<!--        </resources>-->
-<!--    </route>-->
+    <route url="/V1/review/approved" method="GET">
+        <service class="PHAS\ExportReviews\Api\Data\ReviewInterface" method="getReviews"/>
+        <resources>
+            <resource ref="Magento_CatalogInventory::cataloginventory"/>
+        </resources>
+    </route>
+        <route url="/V1/review/approved/:sku" method="GET">
+            <service class="PHAS\ExportReviews\Api\Data\ReviewInterface" method="getReviewsBySku"/>
+            <resources>
+                <resource ref="Magento_CatalogInventory::cataloginventory"/>
+            </resources>
+        </route>
 </routes>

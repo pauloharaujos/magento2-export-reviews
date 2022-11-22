@@ -32,4 +32,16 @@ php bin/magento phas:export_reviews
 ```
 The var/approved_reviews_export.csv file will be created
 
+## How to get Reviews Using API
+
+Use the following endpoint to get all approved reviews:
+```
+/rest/all/V1/review/approved/
+```
+
+Use the following endpoint to get all approved reviews by SKU:
+```
+/rest/all/V1/review/approved/{sku}
+```
+
 [Paulo Henrique Araujo da Silva](https://github.com/pauloharaujos)

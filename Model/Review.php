@@ -39,4 +39,16 @@ class Review extends AbstractModel implements ReviewInterface
         $this->addData($this->getResource()->loadReviews());
         return $this->getData();
     }
+
+    /**
+     * Load Reviews data from resource model by SKU
+     *
+     * @param string $sku
+     * @return array
+     */
+    public function getReviewsBySku(string $sku) : array
+    {
+        $this->addData($this->getResource()->loadReviews($sku));
+        return $this->getData();
+    }
 }

@@ -1,3 +1,1 @@
- - Add ResourceModel and Model, custom collection
- - Add Public API Endpoint, so we can get this info thought PostMan or Integration
  - Publish the Module on the marketplace

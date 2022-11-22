@@ -51,12 +51,14 @@ class Review extends AbstractDb
         $this->reviewEntitySummaryTable = $this->getTable('review_entity_summary');
         $this->reviewDetailTable = $this->getTable('review_detail');
     }
+
     /**
-     * Load reviews from DB
+     * Load all approved reviews from DB
      *
+     * @param string|null $sku
      * @return array
      */
-    public function loadReviews(): array
+    public function loadReviews(string $sku = null): array
     {
         $connection = $this->getConnection();
 
@@ -80,6 +82,9 @@ class Review extends AbstractDb
         );
 
         $select->where('r.status_id = ?', $approvedStatusId);
+        if ($sku) {
+            $select->where('cpe.sku = ?', $sku);
+        }
 
         $selectString = $select->__toString();
         $result = $connection->fetchAll($select);

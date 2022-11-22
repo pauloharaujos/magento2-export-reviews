@@ -24,4 +24,10 @@ interface ReviewInterface
      * @return array
      */
     public function getReviews(): array;
+
+    /**
+     * @param string $sku
+     * @return array
+     */
+    public function getReviewsBySku(string $sku): array;
 }
